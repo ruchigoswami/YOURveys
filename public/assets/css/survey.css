@@ -1,12 +1,91 @@
 h2{
 	text-align: center;
 	font-family: 'Indie Flower', cursive ;
+	margin-top: -20px;
 	
 }
 .jumbotron{
 background-color: #86c736;
+height: 75px;
+color: rgba(0,0,0,.7);
+	
+
+
 }
 .btn{
 	background-color: #86c736;
 	border-color: #86c736;
+	margin-left: 40px;
+	width: 120px;
+	margin-top: 20px;
+
+}
+.navbar-brand{
+	margin-top: -75px;
+
+}
+.navbar-default .navbar-nav>li>a{
+	color: rgba(0,0,0,.7);
+	font-weight: bold;
+	font-size: 22px;
+	margin-top: 15px;
+	font-family: 'Indie Flower', cursive ;
+}
+.navbar-default{
+	background-color: #fff;
+	margin-top: 10px;
+}
+.option ol li {
+	float: left;
+	list-style: none;
+
+}
+.option-box{
+	margin:10px;
+}
+.option-box img{
+	border: 1px solid #d4d4d4;
+}
+.option p {
+font-family: 'Indie Flower', cursive ;
+font-weight: bold;
+margin-top: 20px;
+text-align: center;
+}
+
+.form-group{
+	font-family: 'Indie Flower', cursive ;
+	font-size: 20px;
+	color: rgba(0,0,0,.7);
+}
+.create{
+	margin-left: 270px;
+
+}
+#answer{
+	margin:10px;
+
+}
+#question{
+	padding: 27px 27px 27px 10px;
+	margin: 10px;
+	margin-bottom: 40px;
+	margin-top: 30px;
+	font-weight: bold;
+	font-size: 24px;
+}
+.divpopup{
+	background-color: #DCDCDC;
+	width: 700px;
+	height: 400px;
+	padding-right: 34px;
+	
+	position: relative;
+}
+#close{
+	
+	margin-right: -10px;
+	font-size: 35px;
+	float: right;
+	
 }
