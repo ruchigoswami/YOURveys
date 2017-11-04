@@ -14,6 +14,10 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1, 20]
       }
+    },
+    questionNumber: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
     // surveyId: DataTypes.INT
   });

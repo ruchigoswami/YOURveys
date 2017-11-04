@@ -11,6 +11,10 @@ module.exports = function(sequelize, DataTypes) {
     // questionId: DataTypes.INTEGER,
     voteCount: {
       type: DataTypes.INTEGER
+    },
+    answerNumber: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   });
   Answer.associate = function(models) {
