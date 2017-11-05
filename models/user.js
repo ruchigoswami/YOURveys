@@ -1,7 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
-  var Survey = sequelize.define("Survey", {
+  var User = sequelize.define("User", {
     // Giving the Author model a name of type STRING
-    title: {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 100]
+      }
+    },
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -9,17 +16,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  Survey.associate = function(models) {
+  User.associate = function(models) {
     // Associating Author with Posts
     // When an Author is deleted, also delete any associated Posts
-    Survey.hasMany(models.Question, {
+    User.hasMany(models.Survey, {
       onDelete: "cascade"
     });
-    Survey.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
   };
-  return Survey;
+  return User;
 };
