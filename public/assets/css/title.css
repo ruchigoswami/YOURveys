@@ -1,0 +1,62 @@
+
+.jumbotron{
+background-color: #86c736;
+height: 75px;
+color: rgba(0,0,0,.7);
+	
+}
+.jumbotron h2{
+	text-align: center;
+	font-family: 'Indie Flower', cursive ;
+	margin-top: -20px;
+}
+/*navbar css*/
+.navbar-brand{
+	margin-top: -75px;
+
+}
+.navbar-default .navbar-nav>li>a{
+	color: rgba(0,0,0,.7);
+	font-weight: bold;
+	font-size: 22px;
+	margin-top: 15px;
+	font-family: 'Indie Flower', cursive ;
+}
+.navbar-default{
+	background-color: #fff;
+	margin-top: 10px;
+}
+ /*navbar END*/
+
+
+
+
+.form-group{
+	font-family: 'Indie Flower', cursive ;
+	font-size: 20px;
+	color: rgba(0,0,0,.7);
+}
+
+.Continue {
+	border-color: #86c736;
+	border-radius: 20px;
+	width: 130px;
+	margin-top: 15px;
+	margin-left: 15px;	
+	border: 2px solid #86c736;
+	float: right;
+	background-color:#86c736; 
+	font-size: 18px;
+	color: black;
+}
+
+.title{
+	margin-top: 80px;
+	margin-right: 50px;
+}
+a:active ,a:over{
+    text-decoration: none;
+
+}
+
+

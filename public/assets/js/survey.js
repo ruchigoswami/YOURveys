@@ -1,4 +1,48 @@
 $(document).ready(function() {
+// start temperary code 
+	var answer1 = {
+		 id: 1,
+         text: 'RED',
+         voteCount: 1
+	}
+
+	var answer2 = {
+		 id: 2,
+         text: 'BLUE',
+         voteCount: 2
+	}
+
+	var answer3 = {
+		 id: 3,
+         text: 'VIOLET',
+         voteCount: 3
+	}
+
+	var answer4 = {
+		 id: 4,
+         text: 'GREEN',
+         voteCount: 4
+	}
+
+	var question = {
+            id: 1,
+            text: 'What is your favorate color',
+            answerType: 'radio',
+            answer:[]
+        };
+
+     question.answer.push(answer1);
+     question.answer.push(answer2);
+	 question.answer.push(answer3);
+	 question.answer.push(answer4);
+	 var questions =[];
+	 questions.push(question);
+
+	 displayQuestions(questions)
+//end temp code
+
+
+
 	console.log("I'm working...for the most part");
 	var newSurvey = [];
 	var questionCount = 1;
@@ -27,13 +71,44 @@ $(document).ready(function() {
 
 	});
 
-	$(".add-answer").on("click", function(){
+	
+
+
+
+	
+	//ading answer to survey to the
+	$(".add_answer").on("click", function(){
+		event.preventDefault();
 		var check = $("#answer2").val();
 		var hold = $("#answer2");
 		console.log(check);
 		console.log(answerCount);
-		$("#question").append('<input placeholder="Answer ' + answerCount + '" class="form-control" id="answer' + answerCount + '" value="answer' + answerCount + '">');
 		answerCount++;
+		$(this).parent().find('#answer')
+		.append('<input placeholder="Answer ' + answerCount + '" class="form-control answer_values" id="answer' + answerCount + '">');
+
+		
 	});
+
+	function displayQuestions(questions) {
+
+		for (var i = 0; i < questions.length; i++) {
+     		displayQuestion(question);
+    	}
+
+	}	
+
+	function displayQuestion(question) {
+		$("#survey_content").append("<div class='survey_Q'>"+question.text+"</div>");
+
+		for (var i = 0; i < question.answer.length; i++) {
+
+			if(question.answerType=== 'radio'){
+				$("#survey_content").append("<div class='survey_A'><input type='radio'>"+ question.answer[i].text+"</div>");
+			}
+
+
+	    } 	
+   }
 
 });

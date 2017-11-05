@@ -9,18 +9,8 @@ background-color: #86c736;
 height: 75px;
 color: rgba(0,0,0,.7);
 	
-
-
 }
-.btn{
-	background-color: #86c736;
-	border-color: #86c736;
-	margin-left: 640px;
-	width: 120px;
-	margin-top: 20px;
-	margin-bottom: 40px;
 
-}
 .navbar-brand{
 	margin-top: -75px;
 
@@ -73,17 +63,24 @@ text-align: center;
 	font-weight: bold;
 	margin-top: 0px;
 }
-.create{
+.create {
 	float: right;
 	border-radius: 24px;
 	font-size: 15px;
+	background-color: #86c736;
+	border-color: #86c736;
+	margin-left: 640px;
+	width: 120px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+
 
 }
-#radio_answer,#text_answer ,#checkbox_answer{
+.answer_values ,#text_answer{
 	margin:10px;
 }
 
-#radio_question, #text_question ,#checkbox_question{
+.radio_question, .text_question ,.checkbox_question{
 	padding: 27px 27px 27px 10px;
 	margin: 10px;
 	margin-bottom: 40px;
@@ -94,7 +91,7 @@ text-align: center;
 .divpopup{
 	background-color: rgba(0,0,0,.1);
 	width: 600px;
-	height: 430px;
+	height: 100%;
 	padding-right: 34px;
 
 }
@@ -114,8 +111,102 @@ button:hover.add_answer{
 	
 	border-color: #86c736;
 	border-radius: 20px;
-	width: 150px;
 	margin-top: 15px;
 	margin-left: 15px;	
 	border: 2px solid #86c736;
+	font-weight: bold;
+}
+
+.submit_survey{
+	border-color: #86c736;
+	border-radius: 20px;
+	width: 150px;
+	height: 40px;
+	margin-top: 15px;
+	margin-left: 15px;	
+	border: 2px solid #86c736;
+	font-weight: bold;
+	background-color:  #86c736;
+}
+
+
+
+
+.answer_type {
+	text-align: center;
+	margin-right: 40px;
+	
+}
+.answer_type h3{
+	font-family: 'Indie Flower', cursive;
+    font-size: 24px;
+    color: rgba(0,0,0,.7);
+    font-weight: bold;
+
+}
+
+.survey_content_div{
+	width: 48%;
+	height: 100%;
+	background-color: #f3f3f3;;
+	margin-left: 25%;
+	padding: 40px;
+	margin-bottom: 40px;
+
+}
+#survey_content{		
+    font-size: 20px;
+    color: rgba(0,0,0,.7);
+    font-weight: bold;
+
+}
+button:hover.preview{
+    background: #86c736;
+
+}
+.radio_A{
+	padding: 0 0 0 10px;
+	margin: 5px;
+}
+.radio_input{
+	margin-right: 0px;
+}
+#radio_A li{
+	padding: 6px 0 6px 0;
+    margin-bottom: 2px;
+    position: relative;
+    left: -6px;
+    list-style-type: none; 
+}
+.survey_Q{
+	font-family: 'Indie Flower', cursive;
+	font-weight: normal;
+	font-size: 18px;
+	color: #474747;
+	margin-left: -140px; 
+
+}
+.survey_A{
+	color: #808080;
+    font-size: 17px;
+    font-family: 'Indie Flower', cursive;
+    font-weight: normal;
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-left: -100px;
+}
+
+
+.preview{
+	
+	border-color: #86c736;
+	border-radius: 30px;
+	float: right;
+	margin-top: 15px;
+	margin-left: 15px;	
+	border: 2px solid #86c736;
+	font-weight: bold;
+	width: 180px;
+	height: 50px;
+	font-size: 20px;
 }
