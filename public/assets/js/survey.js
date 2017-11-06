@@ -80,7 +80,7 @@ $(document).ready(function() {
 	 var validQuestion=false;
 
 	 if(questionText!=''){
-
+         validQuestion = true;
 	 	 var question = {
             text: questionText,
             answerType: $(this).attr('data-type'),
@@ -92,6 +92,7 @@ $(document).ready(function() {
 	    var numberOfAnswers= $(this).parent().find('.answer_values').length
 
 	    for (var i = 0; i < numberOfAnswers; i++) {
+	    	validQuestion = false;
 	    	var answerId= 'answer'+(i+1);
 	    	var answerText = $(this).parent().find('#'+answerId).val();
 	    	if(answerText !='') {
