@@ -9,6 +9,27 @@ module.exports = function(app) {
             });
     });
 
+    app.post("/api/users/", function (req, res) {
+      console.log('inside create user' + req);
+      db.User.create({
+        username: req.body.username,
+        password: "asdf"
+      }).then(function(dbUser) {
+        console.log(dbUser);
+        res.json(dbUser);
+      });
+    });
+
+    app.delete("/api/users/:id", function (req, res) {
+      db.User.destroy({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbAuthor) {
+        res.json(dbAuthor);
+      });
+    });
+
     // Used for retrieving the survey that the user created based on the id that was assigned to it.
     app.get("/api/surveys/:id", function (req, res) {
             db.Survey.findOne({
