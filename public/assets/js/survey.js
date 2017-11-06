@@ -81,31 +81,36 @@ $(document).ready(function() {
 
 	 if(questionText!=''){
          validQuestion = true;
+         var answerType =$(this).attr('data-type');
 	 	 var question = {
             text: questionText,
-            answerType: $(this).attr('data-type'),
+            answerType: answerType,
             surveyId:surveyId ,
             answer:[]
    		 };
 
- 
-	    var numberOfAnswers= $(this).parent().find('.answer_values').length
+ 		//Check the options only for radio and checkbox
+ 		if(answerType !='text'){
+ 			var numberOfAnswers= $(this).parent().find('.answer_values').length;
+ 			validQuestion = false;
+        
+		    for (var i = 0; i < numberOfAnswers; i++) {
+		    	var answerId= 'answer'+(i+1);
+		    	var answerText = $(this).parent().find('#'+answerId).val();
+		    	if(answerText !='') {
+		    		validQuestion = true;
+			    	var answer = {
+						 text: answerText,
+				         voteCount: i+1
+					}
+					 question.answer.push(answer);
+		    	}
+			   
+		     	
+		    }
 
-	    for (var i = 0; i < numberOfAnswers; i++) {
-	    	validQuestion = false;
-	    	var answerId= 'answer'+(i+1);
-	    	var answerText = $(this).parent().find('#'+answerId).val();
-	    	if(answerText !='') {
-	    		validQuestion = true;
-		    	var answer = {
-					 text: answerText,
-			         voteCount: i+1
-				}
-				 question.answer.push(answer);
-	    	}
-		   
-	     	
-	    }
+ 		}
+	    
 
       
 
