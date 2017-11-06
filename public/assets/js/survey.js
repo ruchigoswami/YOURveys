@@ -58,6 +58,65 @@ $(document).ready(function() {
 
 	// buildAnswers();
 
+	var url = window.location.search;
+	var surveyId;
+	  if (url.indexOf("?surveyId=") !== -1) {
+	    surveyId = url.split("=")[1];
+	    getSurvey(surveyId);
+	}
+//Gets the survey by id
+	function getSurvey(surveyId){
+		$.get("/api/surveys/"+surveyId , function(data) {
+	      console.log("Posts", data);
+		     $('#surveyTitle').html(data.title);
+	    	 $('#surveyTitle').attr('data-surveyId',data.id);
+	    });
+	}
+
+	//Create Question
+	$(".create").on("click", function(){
+	 var surveyId= $('#surveyTitle').attr('data-surveyId');
+
+	 var question = {
+            text: $(this).parent().find('#question').val(),
+            answerType: $(this).attr('data-type'),
+            surveyId:surveyId ,
+            answer:[]
+    };
+
+ 
+    var numberOfAnswers= $(this).parent().find('.answer_values').length
+
+    for (var i = 0; i < numberOfAnswers; i++) {
+    	var answerId= 'answer'+(i+1);
+	    var answer = {
+			 text: $(this).parent().find('#'+answerId).val(),
+	         voteCount: i+1
+		}
+		 question.answer.push(answer);
+     	
+    }
+
+   
+ 	console.log(question);
+ 	//TODO call api to save question
+
+ 	/*$.post("/api/surveys/question/new", question)
+	.then(function(question) {
+		var quest= [];
+        quest.push(question);
+		console.log(quest);
+		 displayQuestions(quest);
+	 });*/
+
+     var quest= [];
+     quest.push(question);
+	 displayQuestions(quest);
+	 	
+
+	});
+
+
 	$(".submit").on("click", function(){
 		newQuestion.questionNumber = questionCount;
 		newQuestion.title = $("#question_body").val().trim(),
@@ -71,7 +130,7 @@ $(document).ready(function() {
 
 	});
 
-	
+
 
 
 
@@ -93,22 +152,36 @@ $(document).ready(function() {
 	function displayQuestions(questions) {
 
 		for (var i = 0; i < questions.length; i++) {
-     		displayQuestion(question);
+     		displayQuestion(questions[i]);
     	}
 
 	}	
 
 	function displayQuestion(question) {
-		$("#survey_content").append("<div class='survey_Q'>"+question.text+"</div>");
 
-		for (var i = 0; i < question.answer.length; i++) {
+		$("#survey_content").append("<br><div class='survey_Q'>"+question.text+"</div>");
 
-			if(question.answerType=== 'radio'){
-				$("#survey_content").append("<div class='survey_A'><input type='radio'>"+ question.answer[i].text+"</div>");
-			}
+		var html='<form class="survey_A">' ;
+		if(question.answerType=== 'text'){
+			   html = html + "<textarea placeholder='Answer...' id='text_answer' rows='2' cols='60'></textarea> <br>"
+		}else{
 
+			for (var i = 0; i < question.answer.length; i++) {
 
-	    } 	
+   				if(question.answerType=== 'radio'){
+					html = html + "<input type='radio'  class='radio_input'>"+ question.answer[i].text+"</input> <br>";
+				}
+				else if(question.answerType=== 'checkbox'){
+					html = html + "<input type='checkbox' class='radio_input'>"+ question.answer[i].text+"</input> <br>";
+				}
+				
+		    } 	
+		}
+
+		html = html+'</form>';
+		$("#survey_content").append(html);
+
+		
    }
 
 });

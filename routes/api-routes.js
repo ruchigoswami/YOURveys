@@ -4,7 +4,7 @@ module.exports = function(app) {
     app.get("/api/surveys/:id", function (req, res) {
             db.Survey.findOne({
                 where: {
-                    id: req.body.id
+                    id: req.params.id
                 }
             }).then(function(dbSurvey) {
                 res.json(dbSurvey);
@@ -22,9 +22,11 @@ module.exports = function(app) {
     });
     // Used for sending the survey that the user just created to the database.
     app.post("/api/surveys/new", function (req, res) {
+        console.log('inside create survey' + req);
             db.Survey.create({
                 title: req.body.title
             }).then(function(dbSurvey) {
+                console.log()
                 res.json(dbSurvey);
             });
     });
@@ -40,6 +42,21 @@ module.exports = function(app) {
                 res.json(dbSurvey);
             });
     });
+
+    // Used to create a question to database.
+   /* app.post("/api/surveys/question/new", function (req, res) {
+        console.log('inside create question' + req);
+            db.Question.create({
+                text: req.body.text
+                answerType: req.body.answerType,
+                surveyId:req.body.surveyId ,
+                answer:req.body.answer
+
+            }).then(function(dbQuestion) {
+                console.log('inside create question response')
+                res.json(dbQuestion);
+            });
+    });*/
     // Used for editing a specific question in a survey that has been sent to the database.
     app.put("/api/surveys/:id/:questionid/edit", function (req, res) {
             db.Question.update({

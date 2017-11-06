@@ -22,7 +22,7 @@
 		      <a class="navbar-brand" href="#"><img src="assets/image/logo3.png"></a>
 		    </div>
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <button class="preview">Previw</button>
+		      <button class="preview">Preview</button>
 		    </div>
 		</div>
     </nav> 
@@ -31,19 +31,19 @@
 
     <!-- survey heading -->
 	<div class="jumbotron" >
-	   <h2>Create Your Survey</h2>
+	   <h2 id="surveyTitle" data-surveyId=''></h2>
 	</div>
 	<!-- survey heading END-->
     <!-- display survy div -->
 	<div class=" row survey_content_div">
 	    <div class="col-md-12 col-md-offset-3" id='survey_content'>
-	    	<div class="survey_Q"></div>
+	    	<!-- <div class="survey_Q"></div>
 	    	<form class="survey_A">
-	    		   	<input type="radio" name="radio" class="radio_input"> <br>
+	    		   	<input type="radio" name="radio" class="radio_input"> tre<br>
 	    		    <input type="radio" name="radio" class="radio_input"> <br>
 	    		   	<input type="radio" name="radio" class="radio_input"> <br>
 	    		   	<input type="radio" name="radio" class="radio_input"> 
-	    	</form>	
+	    	</form>	 -->
 	    	
 	    </div>
 	</div>
@@ -88,14 +88,15 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<form>
 		                <div class="form-group">
-							<input placeholder="Write your question here..." type="text" class="form-control" id="radio_question">				
+							<input placeholder="Write your question here..." type="text" class="form-control" id="question">				
 							<div id='answer'>		
 								<input placeholder="Answer 1" class="form-control answer_values" id="answer1">
 								<input placeholder="Answer 2" class="form-control answer_values" id="answer2">
 								<input placeholder="Answer 3" class="form-control answer_values" id="answer3">
 							</div>
 							<button class="add_answer">+ Add Answer</button>
-		                    <button  type="submit" class="btn btn-success create">Create</button>
+							 <label class="btn btn-success create" data-type='radio'> Create</label>
+		                   <!--  <button  type="submit" class="btn btn-success create" data-type='radio'>Create</button> -->
 				        </div>
 				    </form>
 		        </div>        
@@ -115,14 +116,15 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<form>
 		                <div class="form-group">
-							<input placeholder="Write your question here..." type="text" class="form-control" id="checkbox_question">			
+							<input placeholder="Write your question here..." type="text" class="form-control" id="question">			
 							<div id='answer'>		
 								<input placeholder="Answer 1" class="form-control answer_values" id="answer1">
 								<input placeholder="Answer 2" class="form-control answer_values" id="answer2">
 								<input placeholder="Answer 3" class="form-control answer_values" id="answer3">
 							</div>
 						    <button type="add" class="add_answer">+ Add Answer</button>
-		                    <button  type="submit" class="btn btn-success create">Create</button>
+						    <label class="btn btn-success create" data-type='checkbox'> Create</label>
+		                    <!-- <button  type="submit" class="btn btn-success create" data-type='checkbox'>Create</button> -->
 				        </div>
 				    </form>
 		        </div>        
@@ -143,9 +145,11 @@
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<form>
 	                <div class="form-group">
-						<input placeholder="Write your question here..." type="text" class="form-control" id="text_question">						
+						<input placeholder="Write your question here..." type="text" class="form-control" id="question">						
 						<textarea placeholder="Answer..." class="form-control" id="text_answer" rows="8" cols="50"></textarea>
-	                    <button  type="submit" class="btn btn-success create">Create</button>
+
+						<label class="btn btn-success create" data-type='text'> Create</label>
+	                   <!--  <button  type="submit" class="btn btn-success create" >Create</button> -->
 			        </div>
 			    </form>
 	        </div>        
@@ -161,15 +165,15 @@
        $(document).ready(function(){
           $("#btn1").click(function(){
           	console.log("1");
-             $("#myModal1").modal({backdrop: false});
+             $("#myModal1").modal({backdrop: true});
           });
           $("#btn2").click(function(){
           		console.log("2");
-             $("#myModal2").modal({backdrop: 'static'});
+             $("#myModal2").modal({backdrop: true});
           });
           $("#btn3").click(function(){
           		console.log("3");
-             $("#myModal3").modal({backdrop: 'static'});
+             $("#myModal3").modal({backdrop: true});
           });
        });
    </script>

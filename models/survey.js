@@ -15,11 +15,11 @@ module.exports = function(sequelize, DataTypes) {
     Survey.hasMany(models.Question, {
       onDelete: "cascade"
     });
-    Survey.belongsTo(models.User, {
+    /*Survey.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
-    });
+    });*/
   };
   return Survey;
 };
