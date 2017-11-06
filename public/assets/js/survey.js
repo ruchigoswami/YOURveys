@@ -76,42 +76,53 @@ $(document).ready(function() {
 	//Create Question
 	$(".create").on("click", function(){
 	 var surveyId= $('#surveyTitle').attr('data-surveyId');
+	 var questionText = $(this).parent().find('#question').val();
 
-	 var question = {
-            text: $(this).parent().find('#question').val(),
+	 if(questionText!=''){
+
+	 	 var question = {
+            text: questionText,
             answerType: $(this).attr('data-type'),
             surveyId:surveyId ,
             answer:[]
-    };
+   		 };
 
  
-    var numberOfAnswers= $(this).parent().find('.answer_values').length
+	    var numberOfAnswers= $(this).parent().find('.answer_values').length
 
-    for (var i = 0; i < numberOfAnswers; i++) {
-    	var answerId= 'answer'+(i+1);
-	    var answer = {
-			 text: $(this).parent().find('#'+answerId).val(),
-	         voteCount: i+1
-		}
-		 question.answer.push(answer);
-     	
-    }
+	    for (var i = 0; i < numberOfAnswers; i++) {
+	    	var answerId= 'answer'+(i+1);
+	    	var answerText = $(this).parent().find('#'+answerId).val();
+	    	if(answerText !='') {
+		    	var answer = {
+					 text: answerText,
+			         voteCount: i+1
+				}
+				 question.answer.push(answer);
+	    	}
+		   
+	     	
+	    }
 
    
- 	console.log(question);
- 	//TODO call api to save question
+ 		console.log(question);
+	 	//TODO call api to save question
 
- 	/*$.post("/api/surveys/question/new", question)
-	.then(function(question) {
-		var quest= [];
-        quest.push(question);
-		console.log(quest);
+	 	/*$.post("/api/surveys/question/new", question)
+		.then(function(question) {
+			var quest= [];
+	        quest.push(question);
+			console.log(quest);
+			 displayQuestions(quest);
+		 });*/
+
+	     var quest= [];
+	     quest.push(question);
 		 displayQuestions(quest);
-	 });*/
 
-     var quest= [];
-     quest.push(question);
-	 displayQuestions(quest);
+	 }
+
+	
 	 	
 
 	});
@@ -163,7 +174,7 @@ $(document).ready(function() {
 
 		var html='<form class="survey_A">' ;
 		if(question.answerType=== 'text'){
-			   html = html + "<textarea placeholder='Answer...' id='text_answer' rows='2' cols='60'></textarea> <br>"
+			   html = html + "<textarea placeholder='Answer...' id='text_answer' rows='2' cols='40'></textarea> <br>"
 		}else{
 
 			for (var i = 0; i < question.answer.length; i++) {
