@@ -39,7 +39,7 @@ $(document).ready(function() {
     newTr.data("user", userData);
     newTr.append("<td>" + userData.username + "</td>");
     newTr.append("<td> " + userData.Surveys.length + "</td>");
-    newTr.append("<td><a href='/blog?user_id=" + userData.id + "'>Go to Surveys</a></td>");
+    newTr.append("<td><a href='/surveyview?user_id=" + userData.id + "'>Go to Surveys</a></td>");
     newTr.append("<td><a href='/cms?user_id=" + userData.id + "'>Create a Survey</a></td>");
     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-user'>Delete User</a></td>");
     return newTr;

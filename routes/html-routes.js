@@ -12,11 +12,14 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
-  app.get("/survey/", function(req, res) {
+  app.get("/survey", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/survey.html"));
   });
-  app.get("/userview/", function(req, res) {
+  app.get("/userview", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/eduserview.html"));
+  });
+  app.get("/surveyview", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/edsurveyview.html"));
   });
   // cms route loads cms.html
   // app.get("/cms", function(req, res) {

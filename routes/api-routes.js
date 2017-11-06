@@ -30,12 +30,31 @@ module.exports = function(app) {
       });
     });
 
+    // GET route for getting all of the surveys
+    app.get("/api/surveys", function(req, res) {
+      var query = {};
+      if (req.query.user_id) {
+        query.UserId = req.query.user_id;
+      }
+      // Here we add an "include" property to our options in our findAll query
+      // We set the value to an array of the models we want to include in a left outer join
+      // In this case, just db.User
+      db.Survey.findAll({
+        where: query,
+        include: [db.User]
+      }).then(function(dbSurvey) {
+      	console.log(dbSurvey);
+        res.json(dbSurvey);
+      });
+    });
+
     // Used for retrieving the survey that the user created based on the id that was assigned to it.
     app.get("/api/surveys/:id", function (req, res) {
             db.Survey.findOne({
                 where: {
                     id: req.params.id
-                }
+                },
+                include: [db.User]
             }).then(function(dbSurvey) {
                 res.json(dbSurvey);
             });
