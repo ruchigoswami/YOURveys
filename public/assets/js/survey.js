@@ -1,42 +1,42 @@
 $(document).ready(function() {
 // start temperary code 
-	var answer1 = {
-		 id: 1,
-         text: 'RED',
-         voteCount: 1
-	}
+	// var answer1 = {
+	// 	 id: 1,
+ //         text: 'RED',
+ //         voteCount: 1
+	// }
 
-	var answer2 = {
-		 id: 2,
-         text: 'BLUE',
-         voteCount: 2
-	}
+	// var answer2 = {
+	// 	 id: 2,
+ //         text: 'BLUE',
+ //         voteCount: 2
+	// }
 
-	var answer3 = {
-		 id: 3,
-         text: 'VIOLET',
-         voteCount: 3
-	}
+	// var answer3 = {
+	// 	 id: 3,
+ //         text: 'VIOLET',
+ //         voteCount: 3
+	// }
 
-	var answer4 = {
-		 id: 4,
-         text: 'GREEN',
-         voteCount: 4
-	}
+	// var answer4 = {
+	// 	 id: 4,
+ //         text: 'GREEN',
+ //         voteCount: 4
+	// }
 
-	var question = {
-            id: 1,
-            text: 'What is your favorate color',
-            answerType: 'radio',
-            answer:[]
-        };
+	// var question = {
+ //            id: 1,
+ //            text: 'What is your favorate color',
+ //            answerType: 'radio',
+ //            answer:[]
+ //        };
 
-     question.answer.push(answer1);
-     question.answer.push(answer2);
-	 question.answer.push(answer3);
-	 question.answer.push(answer4);
+ //     question.answer.push(answer1);
+ //     question.answer.push(answer2);
+	//  question.answer.push(answer3);
+	//  question.answer.push(answer4);
 	 var questions =[];
-	 questions.push(question);
+	 // questions.push(question);
 
 	 displayQuestions(questions)
 //end temp code
@@ -192,7 +192,7 @@ $(document).ready(function() {
 			for (var i = 0; i < question.answer.length; i++) {
 
    				if(question.answerType=== 'radio'){
-					html = html + "<input type='radio'  class='radio_input'>"+ question.answer[i].text+"</input> <br>";
+					html = html + "<input type='radio' class='radio_input' name='" + question.text + "'>"+ question.answer[i].text+"</input> <br>";
 				}
 				else if(question.answerType=== 'checkbox'){
 					html = html + "<input type='checkbox' class='radio_input'>"+ question.answer[i].text+"</input> <br>";
