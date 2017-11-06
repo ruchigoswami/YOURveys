@@ -195,7 +195,7 @@ $(document).ready(function() {
 					html = html + "<input type='radio'  class='radio_input'>"+ question.answer[i].text+"</input> <br>";
 				}
 				else if(question.answerType=== 'checkbox'){
-					html = html + "<input type='checkbox' class='radio_input'>"+ question.answer[i].text+"</input> <br>";
+					html = html + "<input type='checkbox' class='radio_input' name='" + question.text + "'>"+ question.answer[i].text+"</input> <br>";
 				}
 				
 		    } 	
