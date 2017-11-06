@@ -77,6 +77,7 @@ $(document).ready(function() {
 	$(".create").on("click", function(){
 	 var surveyId= $('#surveyTitle').attr('data-surveyId');
 	 var questionText = $(this).parent().find('#question').val();
+	 var validQuestion=false;
 
 	 if(questionText!=''){
 
@@ -94,6 +95,7 @@ $(document).ready(function() {
 	    	var answerId= 'answer'+(i+1);
 	    	var answerText = $(this).parent().find('#'+answerId).val();
 	    	if(answerText !='') {
+	    		validQuestion = true;
 		    	var answer = {
 					 text: answerText,
 			         voteCount: i+1
@@ -104,8 +106,10 @@ $(document).ready(function() {
 	     	
 	    }
 
-   
- 		console.log(question);
+      
+
+ 	console.log(question);
+	 if(validQuestion) {
 	 	//TODO call api to save question
 
 	 	/*$.post("/api/surveys/question/new", question)
@@ -119,6 +123,8 @@ $(document).ready(function() {
 	     var quest= [];
 	     quest.push(question);
 		 displayQuestions(quest);
+	 }
+	 	
 
 	 }
 
