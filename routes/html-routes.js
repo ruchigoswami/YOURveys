@@ -15,6 +15,9 @@ module.exports = function(app) {
   app.get("/survey/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/survey.html"));
   });
+  app.get("/userview/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/eduserview.html"));
+  });
   // cms route loads cms.html
   // app.get("/cms", function(req, res) {
   //   res.sendFile(path.join(__dirname, "../public/cms.html"));

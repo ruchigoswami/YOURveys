@@ -1,5 +1,14 @@
 var db = require("../models");
 module.exports = function(app) {
+	// Used for retrieving the user list.
+    app.get("/api/users/", function (req, res) {
+            db.User.findAll({
+              include: [db.Survey]
+            }).then(function(dbUser) {
+                res.json(dbUser);
+            });
+    });
+
     // Used for retrieving the survey that the user created based on the id that was assigned to it.
     app.get("/api/surveys/:id", function (req, res) {
             db.Survey.findOne({
