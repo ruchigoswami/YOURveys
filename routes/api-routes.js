@@ -135,21 +135,7 @@ module.exports = function(app) {
                 res.json(dbSurvey);
             });
     });
-
-    // Used to create a question to database.
-   /* app.post("/api/surveys/question/new", function (req, res) {
-        console.log('inside create question' + req);
-            db.Question.create({
-                text: req.body.text
-                answerType: req.body.answerType,
-                surveyId:req.body.surveyId ,
-                answer:req.body.answer
-
-            }).then(function(dbQuestion) {
-                console.log('inside create question response')
-                res.json(dbQuestion);
-            });
-    });*/
+    
     // Used for editing a specific question in a survey that has been sent to the database.
     app.put("/api/surveys/:id/:questionid/edit", function (req, res) {
             db.Question.update({
