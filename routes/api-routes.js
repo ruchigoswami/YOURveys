@@ -20,6 +20,49 @@ module.exports = function(app) {
       });
     });
 
+    app.get("/api/fullsurvey/", function (req, res) {
+      db.Survey.findAll({
+
+      }).then(function(dbSurvey) {
+        res.json(dbSurvey);
+      });
+    });
+
+    app.get("/api/fullsurvey/:id", function (req, res) {
+      db.Survey.findOne({
+
+      }).then(function(dbSurvey) {
+        res.json(dbSurvey);
+      });
+    });
+
+    app.post("/api/fullsurvey/", function (req, res) {
+      console.log('inside create full survey' + req);
+      console.log(req.body.fullsurvey.title);
+      db.Survey.create({
+        title: req.body.fullsurvey.title,
+        UserId: 1
+      }).then(function(dbSurvey) {
+      	var questions = [];
+
+      	var tempQ = req.body.fullsurvey.questions;
+      	for(var i = 0; i < tempQ.length; i++)
+      	{
+          var question = {
+          	text: tempQ[i].text,
+          	answerType: tempQ[i].answerType,
+          	questionNumber: (i + 1),
+            SurveyId: dbSurvey.id
+          };
+          questions.push(question);
+      	}
+
+        db.Question.bulkCreate(questions);
+
+        
+      });
+    });
+
     app.delete("/api/users/:id", function (req, res) {
       db.User.destroy({
         where: {

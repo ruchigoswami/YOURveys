@@ -2,14 +2,15 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="assets/css/survey.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
+ <link rel="stylesheet" type="text/css" href="assets/css/survey.css">
+	
+
 </head>
 
 <body>
@@ -21,7 +22,8 @@
 		      <a class="navbar-brand" href="#"><img   src="/assets/image/logo3.PNG"></a>
             </div>
 		     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <button class="preview">Preview</button>
+		      <!-- <button class="preview">Preview</button> -->
+		      <a href="all_survey.html" class="btn btn-default preview">Preview</a>
 		    </div>
 		</div>
     </nav> 
@@ -57,21 +59,28 @@
 	<!-- display survy div END-->
 
 	<!-- survey Title -->
-	<div class="row answer_type">    	
-		<h3>To add a question, first select the answer type below:</h3>				
+	<div class="row answer_type">
+	    
+	    
+	    	    	
+		    <h3>To add question select the answer type.</h3>				
+		</div>
 	</div>	
+
+		
 
 	<!-- for  button -->
 	<div class="option">
-		<button type="button" class="option-box btn-md" id="btn1"><img src="assets/image/radio.png"></button>
-		<button type="button" class="option-box btn-md" id="btn2"><img src="assets/image/checkbox.png"></button>
-		<button type="button" class="option-box btn-md" id="btn3"><img src="assets/image/text.png"></button>
+		
+			<button type="button" class="  option-box btn-md" id="btn1"><img src="assets/image/radio.png"></button>
+			<button type="button" class="  option-box btn-md" id="btn2"><img src="assets/image/checkbox.png"></button>
+			<button type="button" class="  option-box btn-md" id="btn3"><img src="assets/image/text.png"></button>
+		
 	</div>
-
-	<div class="row submit-button option">
-		<button id="submit_survey">Submit Survey</button>
+	<!--button END -->	
+	<div>
+      <button class="btn btn-success whatse">Submit</button>
 	</div>
-	<!--button END -->		
 
 <!-- popup for radio button -->
 						
@@ -91,7 +100,7 @@
 								<input placeholder="Answer 3" class="form-control answer_values" id="answer3">
 							</div>
 							<button class="add_answer">+ Add Answer</button>
-							 <label class="btn btn-success create" data-type='radio' data-dismiss="modal"> Create</label>
+							 <label class="btn btn-success create" data-type='RadioButtons' data-dismiss="modal"> Create</label>
 		                   <!--  <button  type="submit" class="btn btn-success create" data-type='radio'>Create</button> -->
 				        </div>
 				    </form>
@@ -104,7 +113,7 @@
 
 <!-- popup for checkbox button -->
 
-	<!-- modal  -->
+	  <!-- modal  -->
     <div class="modal fade " id="myModal2" role="dialog">
         <div class="modal-dialog ">
 		    <!-- Modal content-->
@@ -120,7 +129,7 @@
 								<input placeholder="Answer 3" class="form-control answer_values" id="answer3">
 							</div>
 						    <button type="add" class="add_answer">+ Add Answer</button>
-						    <label class="btn btn-success create" data-type='checkbox' data-dismiss="modal"> Create</label>
+						    <label class="btn btn-success create" data-type='CheckBoxes' data-dismiss="modal"> Create</label>
 		                    <!-- <button  type="submit" class="btn btn-success create" data-type='checkbox'>Create</button> -->
 				        </div>
 				    </form>
@@ -133,8 +142,8 @@
 <!-- popup for Text -->	
 
     <!-- modal  -->
-	<div class="modal fade" id="myModal3" role="dialog">
-        <div class="modal-dialog">
+	<div class="modal fade " id="myModal3" role="dialog">
+        <div class="modal-dialog ">
 
         <!-- Modal content-->
         <div class=" modal-content">
@@ -145,7 +154,7 @@
 						<input placeholder="Write your question here..." type="text" class="form-control" id="question">						
 						<textarea placeholder="Answer..." class="form-control" id="text_answer" rows="8" cols="50"></textarea>
 
-						<label class="btn btn-success create" data-type='text' data-dismiss="modal"> Create</label>
+						<label class="btn btn-success create" data-type='TextBox' data-dismiss="modal"> Create</label>
 	                   <!--  <button  type="submit" class="btn btn-success create" >Create</button> -->
 			        </div>
 			    </form>

@@ -8,6 +8,7 @@ $(document).ready(function() {
 
 	$.post("/api/surveys/new", survey)
 	.then(function(data) {
+		console.log(data);
 		window.location.href = "survey.html?surveyId=" + data.id;
 	 });
   });
