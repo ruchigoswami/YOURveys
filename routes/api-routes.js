@@ -57,9 +57,26 @@ module.exports = function(app) {
           questions.push(question);
       	}
 
-        db.Question.bulkCreate(questions);
+        db.Question.bulkCreate(questions).then(function(dbQuestion) {
+        	console.log(dbQuestion);
+        	var answers = [];
+        	var tempA = req.body.fullsurvey.questions;
 
-        
+      	    for(var i = 0; i < dbQuestion.length; i++)
+      	    {
+              for(var j = 0; j < tempA[i].answer.length; j++)
+      	    {
+              var answer = {
+          	    text: tempA[i].answer[j].text,
+          	    voteCount: 0,
+          	    answerNumber: (j + 1),
+                QuestionId: dbQuestion[i].dataValues.id
+              };
+              answers.push(answer);
+      	    }
+      	    	db.Answer.bulkCreate(answers);
+      	    }
+        });
       });
     });
 
