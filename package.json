@@ -1,14 +1,8 @@
 {
-  "name": "yourvey",
+  "name": "yourveys",
   "version": "1.0.0",
-  "description": "",
-  "main": "connection.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC",
+  "description": "Our homework at CWRU",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
@@ -16,5 +10,20 @@
     "method-override": "^2.3.10",
     "mysql2": "^1.4.2",
     "sequelize": "^4.19.0"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YOURveys/YOURveys.git"
+  },
+  "author": "Ed Macall, Ruchi Awasthi, Tyler Kadow,  and Michael Stephenson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YOURveys/YOURveys/issues"
+  },
+  "homepage": "https://github.com/YOURveys/YOURveys#readme"
 }
