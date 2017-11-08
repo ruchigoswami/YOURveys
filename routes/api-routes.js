@@ -30,7 +30,10 @@ module.exports = function(app) {
 
     app.get("/api/fullsurvey/:id", function (req, res) {
       db.Survey.findOne({
-
+        where: {
+          id: req.params.id
+        },
+        include: [db.Question]
       }).then(function(dbSurvey) {
         res.json(dbSurvey);
       });
