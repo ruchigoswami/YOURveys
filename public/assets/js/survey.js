@@ -1,8 +1,10 @@
 $(document).ready(function() {
+
+	$('.whatse').hide();
 // start temperary code 
     var globalquestions = [];
 
-	var answer1 = {
+/*	var answer1 = {
 		 id: 1,
          text: 'RED',
          voteCount: 1
@@ -40,9 +42,8 @@ $(document).ready(function() {
 	 var questions =[];
 	 questions.push(question);
 
-	 displayQuestions(questions)
+	 displayQuestions(questions)*/
 //end temp code
-
 
 
 	console.log("I'm working...for the most part");
@@ -61,23 +62,17 @@ $(document).ready(function() {
 	// buildAnswers();
 
 	var url = window.location.search;
-	var surveyId;
-	  if (url.indexOf("?surveyId=") !== -1) {
-	    surveyId = url.split("=")[1];
-	    getSurvey(surveyId);
+	
+	if (url.indexOf("?surveyTitle=") !== -1) {
+		var surveyTitle = decodeURI(url.split("=")[1]);
+   		$('#surveyTitle').html(surveyTitle);
 	}
-//Gets the survey by id
-	function getSurvey(surveyId){
-		$.get("/api/surveys/"+surveyId , function(data) {
-	      console.log("Posts", data);
-		     $('#surveyTitle').html(data.title);
-	    	 $('#surveyTitle').attr('data-surveyId',data.id);
-	    });
-	}
+
 
 	$(document).on("click", ".whatse", handleFormSubmit);
 
 	function handleFormSubmit(event) {
+	  $(this).hide();	
       event.preventDefault();
       console.log("I have been clicked.");
       var fullsurvey = {
@@ -96,7 +91,8 @@ $(document).ready(function() {
     }
 
     function upsertSurvey(surveyData) {
-      $.post("/api/fullsurvey", surveyData)
+      $.post("/api/fullsurvey", surveyData);
+      $('#surveyMessage').html("Survey is saved");
         // .then(getUsers);
     }
 
@@ -133,7 +129,7 @@ $(document).ready(function() {
 			  question.answer.push(answer);
 		    }
           }
-          globalquestions.push(question);
+          
         }
 	    
 
@@ -141,19 +137,12 @@ $(document).ready(function() {
 
  	console.log(question);
 	 if(validQuestion) {
-	 	//TODO call api to save question
-
-	 	/*$.post("/api/surveys/question/new", question)
-		.then(function(question) {
-			var quest= [];
-	        quest.push(question);
-			console.log(quest);
-			 displayQuestions(quest);
-		 });*/
-
+	 	 globalquestions.push(question);
 	     var quest= [];
 	     quest.push(question);
 		 displayQuestions(quest);
+		 $('.whatse').show();
+
 	 }
 	 	
 
