@@ -23,11 +23,11 @@
 }
 .right_panel1{
 	margin-top: 70px;
-	margin-left: 100px;
+	
 }
 .left_panel1{
-	margin-left: 80px;
-	margin-top: 30px;
+	margin-left: 10%;
+	margin-top: 50px;
 	margin-bottom: 120px;
 	max-width: 50rem;
 	text-align: center;
@@ -58,8 +58,9 @@
 	margin-top: 15px;
 
 }
-
-
+.laptop{
+	margin-left: 25%;
+}
 
 
 
