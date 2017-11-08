@@ -37,21 +37,24 @@ h3{
 
 .form-group{
 	font-family: 'Indie Flower', cursive ;
-	font-size: 20px;
+	font-size: 34px;
 	color: rgba(0,0,0,.7);
+
 }
 
 .Continue {
 	border-color: #86c736;
 	border-radius: 20px;
 	width: 130px;
-	margin-top: 15px;
+	height: 40px;
+	margin-top: 25px;
 	margin-left: 15px;	
 	border: 2px solid #86c736;
 	float: right;
 	background-color:#86c736; 
-	font-size: 18px;
+	font-size: 23px;
 	color: black;
+	text-align: center;
 }
 
 .title{
@@ -63,4 +66,21 @@ a:active ,a:over{
 
 }
 
-
+.form-control {
+   font-size: 23px;
+}
+.preview{
+	
+	border-color: #86c736;
+	border-radius: 30px;
+	float: right;
+	margin-top: 15px;
+	margin-left: 15px;	
+	border: 2px solid #86c736;
+	font-weight: bold;
+	width: 180px;
+	font-family: 'Indie Flower', cursive ;
+	font-size: 25px;
+	background-color:#86c736; 
+	color: #000;
+}

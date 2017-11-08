@@ -1,15 +1,8 @@
 $(document).ready(function() {
   $(".Continue").on("click", function(){
 
-	var survey = {
-		title: $('#titleValue').val(),
-		UserId: 1
-	}
 
-	$.post("/api/surveys/new", survey)
-	.then(function(data) {
-		console.log(data);
-		window.location.href = "survey.html?surveyId=" + data.id;
-	 });
+  	window.location.href = "survey.html?surveyTitle=" + $('#titleValue').val();
+
   });
 });

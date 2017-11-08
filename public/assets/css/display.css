@@ -1,0 +1,71 @@
+h2{
+	text-align: center;
+	font-family: 'Indie Flower', cursive ;	
+	line-height: 1.4;	
+    color: rgba(0,0,0,.8);
+	
+}
+.header{
+background-color: #86c736;
+height: 50px;
+width: 60%;
+margin-left: 20%;
+
+}
+
+.navbar-brand{
+	margin-top: -75px;
+
+}
+
+.navbar-default{
+	background-color: #fff;
+	margin-top: 10px;
+}
+
+.question_content{
+	width: 60%;
+	height: 100%;
+	background-color: #f3f3f3;	
+	padding: 40px;
+	margin-bottom: 40px;
+	margin-left: 20%;
+
+}
+
+.survey_Q{
+	font-family: 'Indie Flower', cursive;
+	font-weight: bold;
+	font-size: 25px;
+	color: #474747;
+	margin-left:-10% ; 
+
+}
+.survey_A{
+	color: #808080;
+    font-size: 20px;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: -6%;
+}
+
+#survey_content{
+       margin-top: 30px;
+       
+}
+.preview{
+	
+	border-color: #86c736;
+	border-radius: 30px;
+	float: right;
+	margin-top: 15px;
+	margin-left: 15px;	
+	border: 2px solid #86c736;
+	font-weight: bold;
+	width: 180px;
+	font-family: 'Indie Flower', cursive ;
+	font-size: 25px;
+	background-color:#86c736; 
+	color: #000;
+}

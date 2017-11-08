@@ -20,6 +20,14 @@ module.exports = function(app) {
       });
     });
 
+    app.get("/api/AllSurveys/", function (req, res) {
+      db.Survey.findAll({
+
+      }).then(function(dbSurvey) {
+        res.json(dbSurvey);
+      });
+    });
+
     app.get("/api/fullsurvey/", function (req, res) {
       db.Survey.findAll({
 
@@ -29,10 +37,33 @@ module.exports = function(app) {
     });
 
     app.get("/api/fullsurvey/:id", function (req, res) {
+      
       db.Survey.findOne({
-
+        where: {
+          id: req.params.id
+        },
+        include: [db.Question]
       }).then(function(dbSurvey) {
-        res.json(dbSurvey);
+         res.json(dbSurvey);
+
+      });
+    });
+
+         // GET route for getting all of the surveys
+    app.get("/api/surveys/:id/questions", function(req, res) {
+      var query = {};
+      if (req.params.id) {
+        query.SurveyId = req.params.id;
+      }
+      // Here we add an "include" property to our options in our findAll query
+      // We set the value to an array of the models we want to include in a left outer join
+      // In this case, just db.User
+      db.Question.findAll({
+        where: query,
+        include: [db.Answer]
+      }).then(function(dbQuestions) {
+        console.log(dbQuestions);
+        res.json(dbQuestions);
       });
     });
 
@@ -58,24 +89,36 @@ module.exports = function(app) {
       	}
 
         db.Question.bulkCreate(questions).then(function(dbQuestion) {
-        	console.log(dbQuestion);
+        	console.log("questions"+dbQuestion);
         	var answers = [];
         	var tempA = req.body.fullsurvey.questions;
 
       	    for(var i = 0; i < dbQuestion.length; i++)
       	    {
-              for(var j = 0; j < tempA[i].answer.length; j++)
-      	    {
-              var answer = {
-          	    text: tempA[i].answer[j].text,
-          	    voteCount: 0,
-          	    answerNumber: (j + 1),
-                QuestionId: dbQuestion[i].dataValues.id
-              };
-              answers.push(answer);
+               console.log("tempA["+i+"].answerType"+tempA[i].answerType);
+              if(tempA[i].answerType != 'TextBox'){
+               console.log("tempA["+i+"].answerType"+tempA[i].answerType);
+               for(var j = 0; j < tempA[i].answer.length; j++)
+                  {
+                    var answer = {
+                      text: tempA[i].answer[j].text,
+                      voteCount: 0,
+                      answerNumber: (j + 1),
+                      QuestionId: dbQuestion[i].dataValues.id
+                    };
+                    answers.push(answer);
+                  } 
+              }
+            
+           
+      	    
       	    }
-      	    	db.Answer.bulkCreate(answers);
-      	    }
+            
+            if(answers.length > 0) {
+             console.log("answers"+answers);
+             db.Answer.bulkCreate(answers);
+            }
+           
         });
       });
     });
@@ -107,6 +150,8 @@ module.exports = function(app) {
         res.json(dbSurvey);
       });
     });
+
+  
 
     // Used for retrieving the survey that the user created based on the id that was assigned to it.
     app.get("/api/surveys/:id", function (req, res) {
